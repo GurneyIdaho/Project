@@ -1,2 +1,2 @@
-# Project
+# 2 axis
 Project for practice
