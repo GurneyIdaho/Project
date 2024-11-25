@@ -21,7 +21,7 @@ int pitchPotRight = A1;
 
 void setup() {
     yaw.attach(9);  // attaches servo objects to pins
-  pitch.attach(10);
+    pitch.attach(10);
 }
 
 void loop() {
