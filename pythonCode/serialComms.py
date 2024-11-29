@@ -8,15 +8,18 @@ import time
 import re
 
 def write_coordinates(arduino,yaw: int,pitch: int):
-    yaw = round(float(yaw))%180 #ensure values of proper type and in proper range
-    pitch = round(float(pitch))%180        
+    yaw = round(abs(float(yaw)))%181 #ensure values of proper type and in proper range
+    pitch = round(abs(float(pitch)))%181        
     message = f"<{yaw},{pitch}>"
     arduino.write(bytes(message,   'utf-8')) #writes info to the board in the form <yaw,pitch>, decoded and acted on at the other end
     time.sleep(0.05)
     reply = str(arduino.readline())
     match = re.search(r'<(.*?)>', reply)
-    trimmedReply = match.group(1)
-    return trimmedReply
+    if match:
+        trimmedReply = match.group(1)
+        return trimmedReply
+    else:
+        return "No Reply Recieved"
 
 
 if __name__=="__main__":
