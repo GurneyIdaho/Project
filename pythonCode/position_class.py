@@ -1,5 +1,4 @@
 import math
-
 class Position:
     def __init__(self, initX, initY):
         """
@@ -55,6 +54,9 @@ class Position:
         Calculate the minimum angular distance from the current position to 0,0.
         """
         return math.sqrt(self.x**2 + self.y**2)
+    
+
+        
 
 
 
