@@ -19,7 +19,7 @@ def write_coordinates(arduino,yaw: int,pitch: int):
         trimmedReply = match.group(1)
         return trimmedReply
     else:
-        return "No Reply Recieved"
+        return reply
 
 
 if __name__=="__main__":
